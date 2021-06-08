@@ -113,9 +113,9 @@ Results: [
 
 ## Wireframes
 
-[Wireframe 1](https://imgur.com/a/Ja2yMMG)
+![Wireframe 1](https://res.cloudinary.com/dszox5xnw/image/upload/c_scale,h_552/v1623158491/MusicPalate/MusicPalate-01_bhqnur.png "Wireframe 1")
 
-[Wireframe 2](https://imgur.com/u3oWWNr)
+![Wireframe 2](https://res.cloudinary.com/dszox5xnw/image/upload/c_scale,h_1230/v1623158491/MusicPalate/MusicPalate-02_btiarc.png "Wireframe 2")
 
 ### MVP
 
@@ -145,7 +145,7 @@ Results: [
 
 ## Priority Matrix
 
-[Priority Matrix](https://imgur.com/a/Q9S4HK7)
+![Priority Matrix](https://res.cloudinary.com/dszox5xnw/image/upload/c_scale,h_416/v1623158491/MusicPalate/PriorityMatrix_adghcf.png "Priority Matrix")
 
 ## Timeframes
 
