@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Benton-Sans", sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #000;
+  color: white;
+  padding: 20px;
+  align-items: center;
+}
+header h1 {
+  text-transform: uppercase;
+}
+
+nav {
+  display: flex;
+  font-size: 22px;
+  width: 30vw;
+  justify-content: space-around;
+}
+nav a {
+  text-decoration: none;
+  color: white;
+}
+
+nav a:hover {
+  color: red;
+}
+nav a.active {
+  color: red;
+}
+
+#search-btn {
+  background-color: black;
+  color: white;
+}
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px;
+}
+#search-artist {
+  font-size: 50px;
+  margin: 0 auto;
+}
+
+#search-artist button {
+  font-size: 40px;
+  border: 1px solid black;
+  border-radius: 0 15px 15px 0;
+  padding: 10px;
+  margin-left: -15px;
+}
+
+#search-artist input {
+  font-size: 40px;
+  color: rgba(0, 0, 0, 0.25);
+  border: 1px solid black;
+  border-radius: 15px 0 0 15px;
+  padding: 10px;
+  margin-right: 0;
+}
+#search-artist input:focus {
+  outline: none;
+  border-radius: 15px 0 0 15px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
