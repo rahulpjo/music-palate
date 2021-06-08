@@ -21,6 +21,10 @@ header h1 {
   font-size: 60px;
 }
 
+header h1 img {
+  height: 100%;
+}
+
 nav {
   display: flex;
   font-size: 24px;
@@ -100,6 +104,16 @@ hr {
   margin: 20px;
 }
 
+.artist::after {
+  content: url("img/Triangle.png");
+  position: relative;
+  top: 200px;
+  left: 30px;
+  display: none;
+}
+.show::after {
+  display: block;
+}
 .artist h3 {
   position: absolute;
   bottom: 0;
@@ -202,4 +216,42 @@ footer a.social:hover {
   text-align: center;
   max-width: 500px;
   margin: 20px;
+}
+
+.more-info {
+  display: none;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  flex-flow: row wrap;
+  width: 80vw;
+  justify-content: space-evenly;
+  background-color: #000;
+  color: white;
+  padding: 20px;
+}
+
+.show-info {
+  display: flex;
+  opacity: 1;
+  transition: all 1s ease-in-out;
+}
+
+.more-info h3 {
+  color: #c1262d;
+  text-transform: uppercase;
+  font-size: 24px;
+}
+.more-info div {
+  margin: 30px;
+}
+.more-info .songs ul {
+  position: relative;
+  left: 20px;
+}
+.more-info div {
+  max-width: 30%;
+  margin: 30px;
+}
+.more-info div img {
+  width: 100%;
 }
