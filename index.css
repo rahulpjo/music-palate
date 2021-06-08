@@ -18,13 +18,15 @@ header {
 }
 header h1 {
   text-transform: uppercase;
+  font-size: 60px;
 }
 
 nav {
   display: flex;
-  font-size: 22px;
+  font-size: 24px;
   width: 30vw;
   justify-content: space-around;
+  font-family: "Benton-Sans Book", sans-serif;
 }
 nav a {
   text-decoration: none;
@@ -32,10 +34,10 @@ nav a {
 }
 
 nav a:hover {
-  color: red;
+  color: #c1262d;
 }
 nav a.active {
-  color: red;
+  color: #c1262d;
 }
 
 #search-btn {
@@ -44,9 +46,24 @@ nav a.active {
 }
 main {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: 50px;
+}
+p {
+  font-size: 20px;
+  margin-top: 10px;
+}
+.red {
+  color: #c1262d;
+  font-weight: bold;
+}
+hr {
+  margin: 20px;
+  color: black;
+  opacity: 0.5;
+  width: 80vw;
 }
 #search-artist {
   font-size: 50px;
@@ -74,6 +91,36 @@ main {
   border-radius: 15px 0 0 15px;
 }
 
+.artist {
+  width: 200px;
+  height: 200px;
+  background-image: url("img/EmptyArtist.png");
+  background-size: cover;
+  position: relative;
+  margin: 20px;
+}
+
+.artist h3 {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+.artist h3:hover {
+  background-color: rgba(0, 0, 0, 1);
+  cursor: pointer;
+}
+
+#recommendations {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
 footer {
   position: absolute;
   bottom: 0;
@@ -82,4 +129,57 @@ footer {
   color: white;
   text-align: center;
   padding: 20px;
+}
+
+footer .social-icons {
+  color: white;
+}
+
+footer h5 {
+  margin-bottom: 5px;
+}
+
+footer a.social {
+  color: white;
+  margin: 10px 10px;
+}
+
+footer a.social:hover {
+  color: #c1262d;
+}
+
+/* .dropdown {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: black;
+  color: white;
+  width: 100%;
+}
+.show-dropdown {
+  display: block;
+} */
+@media screen and (max-width: 767px) {
+  header {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #search-artist button {
+    font-size: 30px;
+  }
+
+  #search-artist input {
+    font-size: 30px;
+  }
+  p {
+    font-size: 18px;
+  }
+  h3 {
+    font-size: 16px;
+  }
+  footer {
+    position: static;
+  }
 }
