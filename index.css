@@ -183,3 +183,23 @@ footer a.social:hover {
     position: static;
   }
 }
+
+.about-link {
+  text-decoration: none;
+  color: #c1262d;
+}
+
+.about-link:hover {
+  color: #000;
+}
+
+#about-image {
+  width: 200px;
+  margin: 20px;
+}
+
+#about-info {
+  text-align: center;
+  max-width: 500px;
+  margin: 20px;
+}
