@@ -18,11 +18,16 @@ header {
 }
 header h1 {
   text-transform: uppercase;
-  font-size: 60px;
+  font-size: 55px;
 }
 
-header h1 img {
-  height: 100%;
+header h1::before {
+  content: url("img/MusicPalateLogo.png");
+  margin-right: 10px;
+  background-color: #fff;
+  align-self: center;
+  padding: 15px 10px 0;
+  border-radius: 0 0 20px 20px;
 }
 
 nav {
@@ -114,6 +119,17 @@ hr {
 .show::after {
   display: block;
 }
+
+.artist a {
+  background: #c1262d;
+  color: white;
+  padding: 5px;
+  border-radius: 0 0 5px 0;
+  text-decoration: none;
+}
+.artist a:hover {
+  background: #000;
+}
 .artist h3 {
   position: absolute;
   bottom: 0;
@@ -183,9 +199,11 @@ footer a.social:hover {
   #search-artist button {
     font-size: 30px;
   }
-
   #search-artist input {
     font-size: 30px;
+  }
+  header h1 {
+    font-size: 50px;
   }
   p {
     font-size: 18px;

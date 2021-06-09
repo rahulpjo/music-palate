@@ -3,6 +3,7 @@ const searchInput = document.getElementById("search-area");
 const message = document.querySelector("p");
 const recommendations = document.getElementById("recommendations");
 const additionalInfo = document.querySelector(".more-info");
+const footer = document.querySelector("footer");
 
 const removeClass = () => {
   document.querySelectorAll(".artist").forEach((artist) => {
@@ -16,18 +17,16 @@ const clearArea = () => {
   }
 };
 
-const addListeners = () => {
-  document.querySelectorAll(".artist").forEach((artist) => {
-    artist.addEventListener("click", (e) => {
-      // removeClass();
-      console.log(e);
-      if (e.target.localName === "h3") {
-        e.target.parentNode.classList.toggle("show");
-      } else {
-        e.target.classList.toggle("show");
-      }
-      additionalInfo.classList.toggle("show-info");
-    });
+const addListener = (artist) => {
+  artist.addEventListener("click", (e) => {
+    // removeClass();
+    console.log(e);
+    if (e.target.localName === "h3") {
+      e.target.parentNode.classList.toggle("show");
+    } else {
+      e.target.classList.toggle("show");
+    }
+    additionalInfo.classList.toggle("show-info");
   });
 };
 
@@ -46,11 +45,12 @@ const createArtistBlock = (artist, imageUrl) => {
   artistInfo.style.display = "none";
 
   const artistLink = document.createElement("a");
-  artistLink.innerHTML = "Link";
+  artistLink.innerHTML = "Artist Wiki";
   artistLink.href = artist.wUrl;
   artistLink.target = "_blank";
-
+  
   artistDiv.append(artistName, artistInfo, artistLink);
+  addListener(artistDiv);
   recommendations.appendChild(artistDiv);
 };
 
@@ -94,6 +94,6 @@ searchForm.addEventListener("submit", (e) => {
   searchInput.value = "";
   message.innerHTML = `Because you like <span class="red">${val}</span>, we recommend...`;
   clearArea();
+  footer.style.position = "static";
   getResults(val);
-  addListeners();
 });
