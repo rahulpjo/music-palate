@@ -109,7 +109,7 @@ hr {
   margin: 20px;
 }
 
-.artist::after {
+/* .artist::after {
   content: url("img/Triangle.png");
   position: relative;
   top: 200px;
@@ -118,17 +118,17 @@ hr {
 }
 .show::after {
   display: block;
-}
+} */
 
 .artist a {
-  background: #c1262d;
+  background-color: #c1262d;
   color: white;
   padding: 5px;
   border-radius: 0 0 5px 0;
   text-decoration: none;
 }
 .artist a:hover {
-  background: #000;
+  background-color: #000;
 }
 .artist h3 {
   position: absolute;
@@ -178,17 +178,24 @@ footer a.social:hover {
   color: #c1262d;
 }
 
-/* .dropdown {
+.dropdown {
   display: none;
   position: absolute;
+  bottom: -500px;
   z-index: 1;
   background-color: black;
   color: white;
-  width: 100%;
+  width: 70vw;
+}
+
+.dropdown p {
+  font-size: 12px;
+  width: 200px;
 }
 .show-dropdown {
-  display: block;
-} */
+  display: flex;
+  flex-flow: row wrap;
+}
 @media screen and (max-width: 767px) {
   header {
     flex-direction: column;

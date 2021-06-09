@@ -17,7 +17,7 @@ const clearArea = () => {
   }
 };
 
-const addListener = (artist) => {
+const addListener = (artist, dropdown) => {
   artist.addEventListener("click", (e) => {
     // removeClass();
     console.log(e);
@@ -26,7 +26,8 @@ const addListener = (artist) => {
     } else {
       e.target.classList.toggle("show");
     }
-    additionalInfo.classList.toggle("show-info");
+    dropdown.classList.toggle("show-dropdown");
+    // additionalInfo.classList.toggle("show-info");
   });
 };
 
@@ -40,17 +41,24 @@ const createArtistBlock = (artist, imageUrl) => {
   const artistName = document.createElement("h3");
   artistName.innerHTML = `${artist.Name} <i class="fas fa-caret-down"></i>`;
 
+  const artistDropdown = document.createElement("div");
+  artistDropdown.classList.add("dropdown");
   const artistInfo = document.createElement("p");
   artistInfo.innerHTML = artist.wTeaser;
-  artistInfo.style.display = "none";
+  const artistVideo = document.createElement("iframe");
+  artistVideo.src = artist.yUrl;
+  artistVideo.width = "300px";
+  artistVideo.height = "200px";
+
+  artistDropdown.append(artistInfo,artistVideo);
 
   const artistLink = document.createElement("a");
   artistLink.innerHTML = "Artist Wiki";
   artistLink.href = artist.wUrl;
   artistLink.target = "_blank";
   
-  artistDiv.append(artistName, artistInfo, artistLink);
-  addListener(artistDiv);
+  artistDiv.append(artistName, artistDropdown, artistLink);
+  addListener(artistDiv,artistDropdown);
   recommendations.appendChild(artistDiv);
 };
 
