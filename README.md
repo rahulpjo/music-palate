@@ -151,18 +151,18 @@ Results: [
 
 | Component              | Priority | Estimated Time | Time Invested | Actual Time |
 | ---------------------- | :------: | :------------: | :-----------: | :---------: |
-| Initial HTML           |    M     |      3hrs      |     2hrs      |             |
-| Axios Call             |    H     |      3hrs      |     4hrs      |             |
-| Rendering              |    H     |      3hrs      |     2hrs      |             |
-| JS Event Listeners     |    H     |      3hrs      |    1.5hrs     |             |
-| General CSS            |    M     |      3hrs      |     2hrs      |             |
-| Responsive CSS         |    H     |      3hrs      |      1hr      |             |
-| Image/Video Formatting |    M     |      3hrs      |               |             |
-| Debugging/Clearing     |    M     |     2.5hrs     |      1hr      |             |
-| Dropdown               |    L     |      3hrs      |    1.5hrs     |             |
-| 2nd API Implementation |    L     |      3hrs      |               |             |
+| Initial HTML           |    M     |      3hrs      |     3hrs      |             |
+| Axios Call             |    H     |      3hrs      |     5hrs      |             |
+| Rendering              |    H     |      3hrs      |     3hrs      |             |
+| JS Event Listeners     |    H     |      3hrs      |     2hrs      |             |
+| General CSS            |    M     |      3hrs      |     3hrs      |             |
+| Responsive CSS         |    H     |      3hrs      |     1.5hr     |             |
+| Image/Video Formatting |    M     |      3hrs      |      1hr      |             |
+| Debugging/Clearing     |    M     |     2.5hrs     |     2hrs      |             |
+| Dropdown               |    L     |      3hrs      |    2.5hrs     |             |
+| 2nd API Implementation |    L     |      3hrs      |      1hr      |             |
 | Animation              |    L     |      3hrs      |               |             |
 | Deployment             |    H     |      2hrs      |               |             |
-| About Page HTML        |    L     |      3hrs      |               |             |
-| About Page CSS         |    L     |     2.5hrs     |               |             |
+| About Page HTML        |    L     |      3hrs      |      1hr      |             |
+| About Page CSS         |    L     |     2.5hrs     |     2hrs      |             |
 | Total                  |    H     |     40hrs      |     15hrs     |             |

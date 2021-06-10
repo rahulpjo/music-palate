@@ -109,17 +109,6 @@ hr {
   margin: 20px;
 }
 
-/* .artist::after {
-  content: url("img/Triangle.png");
-  position: relative;
-  top: 200px;
-  left: 30px;
-  display: none;
-}
-.show::after {
-  display: block;
-} */
-
 .artist a {
   background-color: #c1262d;
   color: white;
@@ -202,13 +191,30 @@ footer a.social:hover {
 
 .dropdown .info {
   width: 400px;
-  height: 200px;
-  overflow: scroll;
   margin: 0 10px;
 }
 
 .dropdown .info p {
+  height: 160px;
+  overflow-y: scroll;
+  overflow-x: hidden;
   font-size: 12px;
+}
+/* Learned how to create custom scrollbar from https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp */
+.dropdown .info p::-webkit-scrollbar {
+  width: 10px;
+}
+
+.dropdown .info p::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.dropdown .info p::-webkit-scrollbar-thumb {
+  background: #c1262d;
+}
+
+.dropdown .info p::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .dropdown .video {
@@ -255,9 +261,6 @@ footer a.social:hover {
   h3 {
     font-size: 16px;
   }
-  footer {
-    position: static;
-  }
 }
 
 .about-link {
@@ -292,29 +295,8 @@ footer a.social:hover {
   padding: 20px;
 }
 
-.show-info {
-  display: flex;
-  opacity: 1;
-  transition: all 1s ease-in-out;
-}
-
-.more-info div {
-  margin: 30px;
-}
-.more-info .songs ul {
-  position: relative;
-  left: 20px;
-}
-.more-info div {
-  max-width: 30%;
-  margin: 30px;
-}
-.more-info div img {
-  width: 100%;
-}
-
 .body-cover {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   position: fixed;
   width: 100%;
   height: 100%;
@@ -323,11 +305,14 @@ footer a.social:hover {
   bottom: 0;
   right: 0;
   display: none;
+  opacity: 0;
   z-index: 2;
 }
 
 .show-cover {
   display: block;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
 }
 
 .move-up {

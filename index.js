@@ -21,20 +21,23 @@ const clearArea = () => {
 
 const addListener = (artist, dropdown) => {
   artist.firstChild.addEventListener("click", (e) => {
-    console.log(e);
     let artistBox = e.target.parentNode;
+    let artistHeader = e.target;
     let shiftAmount = recommendations.firstChild.offsetLeft;
     if (e.target.localName === "i"){
       artistBox = e.target.parentNode.parentNode;
+      artistHeader = e.target.parentNode;
     }
+    artistHeader.lastChild.classList.toggle("fa-caret-down");
+    artistHeader.lastChild.classList.toggle("fa-caret-up");
     artistBox.classList.toggle("show");
     artistBox.classList.toggle("move-up");
     let leftShift = `${shiftAmount - artistBox.offsetLeft}px`;
     dropdown.style.left = leftShift;
+    //https://www.smashingmagazine.com/2015/12/getting-started-css-calc-techniques/
     dropdown.style.width = `calc(100vw - ${shiftAmount*2}px)`
     dropdown.classList.toggle("show-dropdown");
     cover.classList.toggle("show-cover");
-    // additionalInfo.classList.toggle("show-info");
   });
 };
 
@@ -102,7 +105,6 @@ const getPicture = async(artist) => {
         },
       }
     );
-    console.log(response.data.response.hits);
     let url = response.data.response.hits[0].result.primary_artist.image_url;
     let songs = [];
     for (let i = 0; i < 3; i++) {
