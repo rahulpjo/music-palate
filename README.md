@@ -133,15 +133,15 @@ Results: [
 
 ## Project Schedule
 
-| Day       | Deliverable                          | Status      |
-| --------- | ------------------------------------ | ----------- |
-| Jun 7-8   | Project Pitch Creation/Wireframes    | Complete    |
-| Jun 8     | Project Approval                     | Complete    |
-| Jun 9     | Basic HTML/CSS/JS Skeleton           | Complete    |
-| Jun 10    | Axios Calls/Rendering/Responsiveness | In Progress |
-| Jun 11    | MVP/Project Deployment               | Incomplete  |
-| Jun 12-13 | Post-MVP/Final Touchups              | Incomplete  |
-| Jun 14    | Presentations/Project Submission     | Incomplete  |
+| Day       | Deliverable                          | Status     |
+| --------- | ------------------------------------ | ---------- |
+| Jun 7-8   | Project Pitch Creation/Wireframes    | Complete   |
+| Jun 8     | Project Approval                     | Complete   |
+| Jun 9     | Basic HTML/CSS/JS Skeleton           | Complete   |
+| Jun 10    | Axios Calls/Rendering/Responsiveness | Complete   |
+| Jun 11    | MVP/Project Deployment               | Incomplete |
+| Jun 12-13 | Post-MVP/Final Touchups              | Incomplete |
+| Jun 14    | Presentations/Project Submission     | Incomplete |
 
 ## Priority Matrix
 
