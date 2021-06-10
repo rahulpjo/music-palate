@@ -121,7 +121,7 @@ Results: [
 
 - Create HTML/CSS/JavaScript for user interface to query search and display results
 - Axios call on Tastedive API
-- Display newly found artists and some information on page using Grid
+- Display newly found artists and some information on page using Flexbox
 - Implement responsive design (possibly using Flexbox)
 - Clear earlier query results when creating a new search
 
@@ -152,7 +152,7 @@ Results: [
 | Component              | Priority | Estimated Time | Time Invested | Actual Time |
 | ---------------------- | :------: | :------------: | :-----------: | :---------: |
 | Initial HTML           |    M     |      3hrs      |     3hrs      |             |
-| Axios Call             |    H     |      3hrs      |     5hrs      |             |
+| Axios Call             |    H     |      3hrs      |     4hrs      |             |
 | Rendering              |    H     |      3hrs      |     3hrs      |             |
 | JS Event Listeners     |    H     |      3hrs      |     2hrs      |             |
 | General CSS            |    M     |      3hrs      |     3hrs      |             |
@@ -162,7 +162,7 @@ Results: [
 | Dropdown               |    L     |      3hrs      |    2.5hrs     |             |
 | 2nd API Implementation |    L     |      3hrs      |      1hr      |             |
 | Animation              |    L     |      3hrs      |               |             |
-| Deployment             |    H     |      2hrs      |               |             |
+| Deployment             |    H     |      2hrs      |      1hr      |             |
 | About Page HTML        |    L     |      3hrs      |      1hr      |             |
 | About Page CSS         |    L     |     2.5hrs     |     2hrs      |             |
-| Total                  |    H     |     40hrs      |     15hrs     |             |
+| Total                  |    H     |     40hrs      |     27hrs     |             |

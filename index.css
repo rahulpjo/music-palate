@@ -255,11 +255,56 @@ footer a.social:hover {
   header h1 {
     font-size: 50px;
   }
+  nav {
+    width: 50vw;
+  }
   p {
     font-size: 18px;
   }
   h3 {
     font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #search-artist button {
+    font-size: 20px;
+  }
+  #search-artist input {
+    font-size: 20px;
+  }
+  header h1 {
+    font-size: 30px;
+  }
+  nav a {
+    font-size: 20px;
+  }
+  p {
+    font-size: 14px;
+  }
+  h3 {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 374px) {
+  #search-artist button {
+    font-size: 15px;
+  }
+  #search-artist input {
+    font-size: 15px;
+  }
+  header h1 {
+    font-size: 24px;
+  }
+  header h1::before {
+    content: none;
+  }
+  p {
+    font-size: 12px;
+  }
+  h3 {
+    font-size: 11px;
   }
 }
 
