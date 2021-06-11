@@ -1,3 +1,6 @@
+const gToken = config.G_TOKEN;
+const tdKey = config.TD_KEY;
+
 //search bar values
 const searchForm = document.getElementById("search-artist");
 const searchInput = document.getElementById("search-area");
@@ -117,7 +120,15 @@ const createArtistBlock = (artist, imageUrl, songList) => {
   addListener(artistDiv,artistDropdown);
   //add artist to div
   recommendations.appendChild(artistDiv);
-  
+  artistDiv.animate([
+    // keyframes
+    { transform: 'scale(0)' },
+    { transform: 'scale(1.2)' },
+    { transform: 'scale(1)' }
+  ], {
+    // timing options
+    duration: 500
+  });
   //after adding artist check if footer needs to be moved down
   if (document.documentElement.scrollHeight > window.innerHeight){
     //change from absolute position to static so footer moves as artists are being added
@@ -132,7 +143,7 @@ const getPicture = async(artist) => {
       `https://ancient-anchorage-80263.herokuapp.com/https://api.genius.com/search?q=${artist.Name}`,
       {
         headers: {
-          'Authorization': `Bearer ${G_TOKEN}`,
+          'Authorization': `Bearer ${gToken}`,
         },
       }
     );
@@ -155,7 +166,7 @@ const getResults = async (value) => {
     //solved CORS issue using Stack Overflow response linked below:
     //https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe
     let response = await axios.get(
-      `https://ancient-anchorage-80263.herokuapp.com/https://tastedive.com/api/similar?k=${TD_KEY}&q=${value}&info=1`
+      `https://ancient-anchorage-80263.herokuapp.com/https://tastedive.com/api/similar?k=${tdKey}&q=${value}&info=1`
     );
     //send each recommendation name to genius api now to get pictures
     response.data.Similar.Results.forEach((artist) => {
