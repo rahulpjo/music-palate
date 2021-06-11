@@ -1,52 +1,74 @@
+//search bar values
 const searchForm = document.getElementById("search-artist");
 const searchInput = document.getElementById("search-area");
+
+//message below search bar
 const message = document.querySelector("main>p");
+
+//area where artist results show up
 const recommendations = document.getElementById("recommendations");
-const additionalInfo = document.querySelector(".more-info");
+
+//footer
 const footer = document.querySelector("footer");
+
+//fixed layer that covers the screen except for selected artist
+//implemented to prevent opening of one artist while another is already open
+//as it could lead to errors
 const cover = document.querySelector(".body-cover");
 
+//clears artists for new search results
 const clearArea = () => {
   while (recommendations.childNodes.length) {
     recommendations.childNodes[0].remove();
   }
 };
 
+//adds event listeners to newly created artist divs
 const addListener = (artist, dropdown) => {
   artist.firstChild.addEventListener("click", (e) => {
     let artistBox = e.target.parentNode;
     let artistHeader = e.target;
     let shiftAmount = recommendations.firstChild.offsetLeft;
+    //checks case where specfically the down arrow was clicked
     if (e.target.localName === "i"){
       artistBox = e.target.parentNode.parentNode;
       artistHeader = e.target.parentNode;
     }
+    //switches between up and down arrow on click
     artistHeader.lastChild.classList.toggle("fa-caret-down");
     artistHeader.lastChild.classList.toggle("fa-caret-up");
-    artistBox.classList.toggle("show");
+
+    //increases z-index to be above fixed layer
     artistBox.classList.toggle("move-up");
+
+    //makes dropdown menu start where the artist section seemingly starts
     let leftShift = `${shiftAmount - artistBox.offsetLeft}px`;
     dropdown.style.left = leftShift;
+
     //https://www.smashingmagazine.com/2015/12/getting-started-css-calc-techniques/
-    dropdown.style.width = `calc(100vw - ${shiftAmount*2}px)`
+    //makes dropdown area same width as artist area with responsiveness
+    dropdown.style.width = `calc(100vw - ${shiftAmount*2}px)`;
+
+    //reveals dropdown and cover layer
     dropdown.classList.toggle("show-dropdown");
     cover.classList.toggle("show-cover");
   });
 };
 
 const createArtistBlock = (artist, imageUrl, songList) => {
+  //create artist block
   const artistDiv = document.createElement("div");
   artistDiv.classList.add("artist");
   artistDiv.style.background = `url(${imageUrl})`;
   artistDiv.style.backgroundSize = 'cover';
   artistDiv.style.backgroundPosition = 'center';
-
+  //create artist name with down arrow for dropdown
   const artistName = document.createElement("h3");
   artistName.innerHTML = `${artist.Name} <i class="fas fa-caret-down"></i>`;
-
+  //create dropdown
   const artistDropdown = document.createElement("div");
   artistDropdown.classList.add("dropdown");
-
+  //create information block in dropdown
   const infoDiv = document.createElement("div");
   infoDiv.classList.add("info");
   const infoHeader = document.createElement("h3");
@@ -54,7 +76,7 @@ const createArtistBlock = (artist, imageUrl, songList) => {
   const artistInfo = document.createElement("p");
   artistInfo.innerHTML = artist.wTeaser;
   infoDiv.append(infoHeader,artistInfo);
-
+  //create video block in dropdown
   const videoDiv = document.createElement("div");
   videoDiv.classList.add("video");
   const videoHeader = document.createElement("h3");
@@ -62,7 +84,7 @@ const createArtistBlock = (artist, imageUrl, songList) => {
   const artistVideo = document.createElement("iframe");
   artistVideo.src = artist.yUrl;
   videoDiv.append(videoHeader,artistVideo);
-
+  //create song list block in dropdown
   const songsDiv = document.createElement("div");
   songsDiv.classList.add("songs");
   const songsHeader = document.createElement("h3");
@@ -74,16 +96,18 @@ const createArtistBlock = (artist, imageUrl, songList) => {
     artistSongs.appendChild(artistSong);
   })
   songsDiv.append(songsHeader,artistSongs);
-
+  //add all three blocks to dropdown
   artistDropdown.append(infoDiv, videoDiv, songsDiv);
-
+  //add top left wikipedia link
   const artistLink = document.createElement("a");
   artistLink.innerHTML = "Artist Wiki";
   artistLink.href = artist.wUrl;
   artistLink.target = "_blank";
-  
+  //add name, dropdown, and wikipedia link to artist block
   artistDiv.append(artistName, artistDropdown, artistLink);
+  //add event listeners
   addListener(artistDiv,artistDropdown);
+  //add artist to div
   recommendations.appendChild(artistDiv);
 };
 
@@ -94,15 +118,18 @@ const getPicture = async(artist) => {
       `https://ancient-anchorage-80263.herokuapp.com/https://api.genius.com/search?q=${artist.Name}`,
       {
         headers: {
-          'Authorization': `Bearer ${process.env.G_TOKEN}`,
+          'Authorization': `Bearer ${G_TOKEN}`,
         },
       }
     );
+    //get artist picture
     let url = response.data.response.hits[0].result.primary_artist.image_url;
     let songs = [];
+    //get first three song results when searching artist
     for (let i = 0; i < 3; i++) {
       songs.push(response.data.response.hits[i].result.title_with_featured);
     }
+    //create artist block with retrieved info
     createArtistBlock(artist, url, songs);
   } catch (error) {
     console.error(error.message);
@@ -114,8 +141,9 @@ const getResults = async (value) => {
     //solved CORS issue using Stack Overflow response linked below:
     //https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe
     let response = await axios.get(
-      `https://ancient-anchorage-80263.herokuapp.com/https://tastedive.com/api/similar?k=${process.env.TD_KEY}&q=${value}&info=1`
+      `https://ancient-anchorage-80263.herokuapp.com/https://tastedive.com/api/similar?k=${TD_KEY}&q=${value}&info=1`
     );
+    //send each recommendation name to genius api now to get pictures
     response.data.Similar.Results.forEach((artist) => {
       getPicture(artist);
     });
@@ -128,9 +156,14 @@ const getResults = async (value) => {
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const val = searchInput.value;
+  //clear search
   searchInput.value = "";
+  //clear anything that exists in reccomendation area
   clearArea();
+  //change from absolute position to static so footer moves as artists are being added
   footer.style.position = "static";
+  //send to chain of functions above
   getResults(val);
+  //respond with message to confirm user's input
   message.innerHTML = `Because you like <span class="red">${val}</span>, we recommend...`;
 });
