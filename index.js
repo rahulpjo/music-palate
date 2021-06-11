@@ -1,5 +1,5 @@
-const gToken = config.G_TOKEN;
-const tdKey = config.TD_KEY;
+const gToken = 'QfcbDdKNzdazOQU518E44uRbIz8lcV27jlC_tmQ8HAw7AhOyVzWv3xycftPr8flB';
+const tdKey = '409565-MusicPal-IDVIL00A';
 
 //search bar values
 const searchForm = document.getElementById("search-artist");
@@ -120,14 +120,17 @@ const createArtistBlock = (artist, imageUrl, songList) => {
   addListener(artistDiv,artistDropdown);
   //add artist to div
   recommendations.appendChild(artistDiv);
+  //add animations when artists are added
+  //source: https://developer.mozilla.org/en-US/docs/Web/API/Element/animate
   artistDiv.animate([
     // keyframes
     { transform: 'scale(0)' },
-    { transform: 'scale(1.2)' },
+    { transform: 'scale(1.1)' },
     { transform: 'scale(1)' }
   ], {
     // timing options
-    duration: 500
+    duration: 500,
+    easing: 'ease-in'
   });
   //after adding artist check if footer needs to be moved down
   if (document.documentElement.scrollHeight > window.innerHeight){

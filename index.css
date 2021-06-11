@@ -107,6 +107,8 @@ hr {
   background-size: cover;
   position: relative;
   margin: 20px;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
 }
 
 .artist a {
