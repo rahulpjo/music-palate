@@ -16,6 +16,7 @@ const footer = document.querySelector("footer");
 //as it could lead to errors
 const cover = document.querySelector(".body-cover");
 
+
 //clears artists for new search results
 const clearArea = () => {
   while (recommendations.childNodes.length) {
@@ -41,13 +42,20 @@ const addListener = (artist, dropdown) => {
     //increases z-index to be above fixed layer
     artistBox.classList.toggle("move-up");
 
-    //makes dropdown menu start where the artist section seemingly starts
-    let leftShift = `${shiftAmount - artistBox.offsetLeft}px`;
+    //determine width of screen for dropdown. used source:
+    //https://dmitripavlutin.com/screen-window-page-sizes/
+    let width = window.innerWidth;
+    console.log(width);
+
+    // if screen is wide enough, makes dropdown menu start where the artist section seemingly starts
+    // if not, dropdown starts 5 pixels from left of screen
+    let leftShift = (width > 570) ? `${shiftAmount - artistBox.offsetLeft}px`:`${5 - artistBox.offsetLeft}px`;
     dropdown.style.left = leftShift;
 
     //https://www.smashingmagazine.com/2015/12/getting-started-css-calc-techniques/
-    //makes dropdown area same width as artist area with responsiveness
-    dropdown.style.width = `calc(100vw - ${shiftAmount*2}px)`;
+    // if screen is wide enough, makes dropdown area same width as artist area with responsiveness
+    // if not, dropdown is roughly width of screen minus 5 pixels on each side
+    dropdown.style.width = (width > 570) ? `calc(100vw - ${shiftAmount*2}px)`: 'calc(100vw - 10px)';
 
     //reveals dropdown and cover layer
     dropdown.classList.toggle("show-dropdown");
@@ -109,6 +117,12 @@ const createArtistBlock = (artist, imageUrl, songList) => {
   addListener(artistDiv,artistDropdown);
   //add artist to div
   recommendations.appendChild(artistDiv);
+  
+  //after adding artist check if footer needs to be moved down
+  if (document.documentElement.scrollHeight > window.innerHeight){
+    //change from absolute position to static so footer moves as artists are being added
+    footer.style.position = "static";
+  }
 };
 
 const getPicture = async(artist) => {
@@ -160,8 +174,6 @@ searchForm.addEventListener("submit", (e) => {
   searchInput.value = "";
   //clear anything that exists in reccomendation area
   clearArea();
-  //change from absolute position to static so footer moves as artists are being added
-  footer.style.position = "static";
   //send to chain of functions above
   getResults(val);
   //respond with message to confirm user's input
