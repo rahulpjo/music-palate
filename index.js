@@ -1,17 +1,10 @@
 const searchForm = document.getElementById("search-artist");
 const searchInput = document.getElementById("search-area");
-const message = document.querySelector("p");
+const message = document.querySelector("main>p");
 const recommendations = document.getElementById("recommendations");
 const additionalInfo = document.querySelector(".more-info");
 const footer = document.querySelector("footer");
 const cover = document.querySelector(".body-cover");
-
-
-const removeClass = () => {
-  document.querySelectorAll(".artist").forEach((artist) => {
-    artist.classList.remove("show");
-  });
-};
 
 const clearArea = () => {
   while (recommendations.childNodes.length) {
@@ -101,7 +94,7 @@ const getPicture = async(artist) => {
       `https://ancient-anchorage-80263.herokuapp.com/https://api.genius.com/search?q=${artist.Name}`,
       {
         headers: {
-          'Authorization': `Bearer ${gToken}`,
+          'Authorization': `Bearer ${process.env.G_TOKEN}`,
         },
       }
     );
@@ -121,14 +114,14 @@ const getResults = async (value) => {
     //solved CORS issue using Stack Overflow response linked below:
     //https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe
     let response = await axios.get(
-      `https://ancient-anchorage-80263.herokuapp.com/https://tastedive.com/api/similar?k=${tdKey}&q=${value}&info=1`
+      `https://ancient-anchorage-80263.herokuapp.com/https://tastedive.com/api/similar?k=${process.env.TD_KEY}&q=${value}&info=1`
     );
     response.data.Similar.Results.forEach((artist) => {
       getPicture(artist);
     });
   } catch (error) {
     console.error(error.message);
-  }
+  } 
 };
 
 
@@ -136,8 +129,8 @@ searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const val = searchInput.value;
   searchInput.value = "";
-  message.innerHTML = `Because you like <span class="red">${val}</span>, we recommend...`;
   clearArea();
   footer.style.position = "static";
   getResults(val);
+  message.innerHTML = `Because you like <span class="red">${val}</span>, we recommend...`;
 });

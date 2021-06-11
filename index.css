@@ -360,3 +360,7 @@ footer a.social:hover {
 .move-up {
   z-index: 3;
 }
+
+.move-up > h3 {
+  background-color: black;
+}
