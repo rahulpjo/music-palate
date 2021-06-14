@@ -1,11 +1,16 @@
+/* general site styling */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   font-family: "Benton-Sans", sans-serif;
+}
+
+/* specific element styling */
+a:hover {
+  transition: all 0.5s ease-in-out;
 }
 
 header {
@@ -20,7 +25,6 @@ header h1 {
   text-transform: uppercase;
   font-size: 55px;
 }
-
 header h1::before {
   content: url("img/MusicPalateLogo.png");
   margin-right: 10px;
@@ -28,6 +32,25 @@ header h1::before {
   align-self: center;
   padding: 15px 10px 0;
   border-radius: 0 0 20px 20px;
+}
+
+hr {
+  margin: 20px;
+  color: black;
+  opacity: 0.5;
+  width: 80vw;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 50px;
+}
+main > p {
+  opacity: 1;
+  transition: all 1s ease-in-out;
 }
 
 nav {
@@ -41,7 +64,6 @@ nav a {
   text-decoration: none;
   color: white;
 }
-
 nav a:hover {
   color: #c1262d;
 }
@@ -49,55 +71,41 @@ nav a.active {
   color: #c1262d;
 }
 
-#search-btn {
-  background-color: black;
-  color: white;
-}
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 50px;
-}
 p {
   font-size: 20px;
   margin-top: 10px;
 }
-.red {
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+footer a.social {
+  color: white;
+  margin: 10px 10px;
+}
+footer a.social:hover {
   color: #c1262d;
-  font-weight: bold;
 }
-hr {
-  margin: 20px;
-  color: black;
-  opacity: 0.5;
-  width: 80vw;
+footer h5 {
+  margin-bottom: 5px;
 }
-#search-artist {
-  font-size: 50px;
-  margin: 0 auto;
+footer .social-icons {
+  color: white;
 }
 
-#search-artist button {
-  font-size: 40px;
-  border: 1px solid black;
-  border-radius: 0 15px 15px 0;
-  padding: 10px;
-  margin-left: -15px;
+/* class styling */
+.about-link {
+  text-decoration: none;
+  color: #c1262d;
 }
-
-#search-artist input {
-  font-size: 40px;
-  color: rgba(0, 0, 0, 0.25);
-  border: 1px solid black;
-  border-radius: 15px 0 0 15px;
-  padding: 10px;
-  margin-right: 0;
-}
-#search-artist input:focus {
-  outline: none;
-  border-radius: 15px 0 0 15px;
+.about-link:hover {
+  color: #000;
 }
 
 .artist {
@@ -110,7 +118,6 @@ hr {
   opacity: 1;
   transition: opacity 1s ease-in-out;
 }
-
 .artist a {
   background-color: #c1262d;
   color: white;
@@ -130,43 +137,18 @@ hr {
   text-align: center;
   padding: 10px;
 }
-
 .artist h3:hover {
   background-color: rgba(0, 0, 0, 1);
   cursor: pointer;
 }
 
-#recommendations {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-}
-
-footer {
-  position: absolute;
-  bottom: 0;
+.body-cover {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
   width: 100%;
-  background-color: black;
-  color: white;
-  text-align: center;
-  padding: 20px;
-}
-
-footer .social-icons {
-  color: white;
-}
-
-footer h5 {
-  margin-bottom: 5px;
-}
-
-footer a.social {
-  color: white;
-  margin: 10px 10px;
-}
-
-footer a.social:hover {
-  color: #c1262d;
+  height: 100%;
+  display: none;
+  z-index: 2;
 }
 
 .dropdown {
@@ -195,52 +177,116 @@ footer a.social:hover {
   width: 400px;
   margin: 0 10px;
 }
-
 .dropdown .info p {
   height: 160px;
   overflow-y: scroll;
   overflow-x: hidden;
   font-size: 12px;
 }
+
 /* Learned how to create custom scrollbar from https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp */
 .dropdown .info p::-webkit-scrollbar {
   width: 10px;
 }
-
 .dropdown .info p::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
-
 .dropdown .info p::-webkit-scrollbar-thumb {
   background: #c1262d;
 }
-
 .dropdown .info p::-webkit-scrollbar-thumb:hover {
   background: #555;
-}
-
-.dropdown .video {
-  width: 300px;
-  margin: 0 10px;
-}
-
-.dropdown .video iframe {
-  width: 100%;
 }
 
 .dropdown .songs {
   width: 200px;
   margin: 0 10px;
 }
-
 .dropdown .songs ul {
   margin-left: 30px;
 }
+.dropdown .video {
+  width: 300px;
+  margin: 0 10px;
+}
+.dropdown .video iframe {
+  width: 100%;
+}
+
+.fade-out {
+  opacity: 0;
+  transform: rotateX(90deg);
+  transition: all 1s ease-in-out;
+}
+
+.move-up {
+  z-index: 3;
+}
+.move-up > h3 {
+  background-color: black;
+}
+
+.red {
+  color: #c1262d;
+  font-weight: bold;
+}
+
 .show-dropdown {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
 }
+
+.show-cover {
+  display: block;
+}
+/* id styling */
+#about-image {
+  width: 200px;
+  margin: 20px;
+}
+#about-info {
+  text-align: center;
+  max-width: 500px;
+  margin: 20px;
+}
+
+#recommendations {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+#search-artist {
+  font-size: 50px;
+  margin: 0 auto;
+}
+#search-artist button {
+  font-size: 40px;
+  border: 1px solid black;
+  border-radius: 0 15px 15px 0;
+  padding: 10px;
+  margin-left: -15px;
+}
+#search-artist input {
+  font-size: 40px;
+  color: rgba(0, 0, 0, 0.25);
+  border: 1px solid black;
+  border-radius: 15px 0 0 15px;
+  padding: 10px;
+  margin-right: 0;
+}
+#search-artist input:focus {
+  outline: none;
+  border-radius: 15px 0 0 15px;
+}
+
+#search-btn {
+  background-color: black;
+  color: white;
+}
+
+/* responsive css */
 @media screen and (max-width: 767px) {
   header {
     flex-direction: column;
@@ -248,117 +294,75 @@ footer a.social:hover {
 }
 
 @media screen and (max-width: 600px) {
+  h1 {
+    font-size: 50px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  nav {
+    width: 50vw;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
   #search-artist button {
     font-size: 30px;
   }
   #search-artist input {
     font-size: 30px;
-  }
-  header h1 {
-    font-size: 50px;
-  }
-  nav {
-    width: 50vw;
-  }
-  p {
-    font-size: 18px;
-  }
-  h3 {
-    font-size: 16px;
   }
 }
 
 @media screen and (max-width: 500px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  nav a {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
   #search-artist button {
     font-size: 20px;
   }
   #search-artist input {
     font-size: 20px;
-  }
-  header h1 {
-    font-size: 30px;
-  }
-  nav a {
-    font-size: 20px;
-  }
-  p {
-    font-size: 14px;
-  }
-  h3 {
-    font-size: 16px;
   }
 }
 
 @media screen and (max-width: 374px) {
+  h1 {
+    font-size: 24px;
+  }
+  h1::before {
+    content: none;
+  }
+
+  h3 {
+    font-size: 11px;
+  }
+
+  p {
+    font-size: 12px;
+  }
+
   #search-artist button {
     font-size: 15px;
   }
   #search-artist input {
     font-size: 15px;
   }
-  header h1 {
-    font-size: 24px;
-  }
-  header h1::before {
-    content: none;
-  }
-  p {
-    font-size: 12px;
-  }
-  h3 {
-    font-size: 11px;
-  }
-}
-
-.about-link {
-  text-decoration: none;
-  color: #c1262d;
-}
-
-.about-link:hover {
-  color: #000;
-}
-
-#about-image {
-  width: 200px;
-  margin: 20px;
-}
-
-#about-info {
-  text-align: center;
-  max-width: 500px;
-  margin: 20px;
-}
-
-.more-info {
-  display: none;
-  opacity: 0;
-  transition: all 0.5s ease-in-out;
-  flex-flow: row wrap;
-  width: 80vw;
-  justify-content: space-evenly;
-  background-color: #000;
-  color: white;
-  padding: 20px;
-}
-
-.body-cover {
-  background-color: rgba(0, 0, 0, 0.7);
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  display: none;
-  z-index: 2;
-}
-
-.show-cover {
-  display: block;
-}
-
-.move-up {
-  z-index: 3;
-}
-
-.move-up > h3 {
-  background-color: black;
 }

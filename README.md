@@ -88,8 +88,8 @@ Results: [
 | Jun 8     | Project Approval                     | Complete   |
 | Jun 9     | Basic HTML/CSS/JS Skeleton           | Complete   |
 | Jun 10    | Axios Calls/Rendering/Responsiveness | Complete   |
-| Jun 11    | MVP/Project Deployment               | Incomplete |
-| Jun 12-13 | Post-MVP/Final Touchups              | Incomplete |
+| Jun 11    | MVP/Project Deployment               | Complete   |
+| Jun 12-13 | Post-MVP/Final Touchups              | Complete   |
 | Jun 14    | Presentations/Project Submission     | Incomplete |
 
 ## Priority Matrix
@@ -100,18 +100,19 @@ Results: [
 
 | Component              | Priority | Estimated Time | Time Invested | Actual Time |
 | ---------------------- | :------: | :------------: | :-----------: | :---------: |
-| Initial HTML           |    M     |      3hrs      |     3hrs      |             |
-| Axios Call             |    H     |      3hrs      |     4hrs      |             |
-| Rendering              |    H     |      3hrs      |     3hrs      |             |
-| JS Event Listeners     |    H     |      3hrs      |     2hrs      |             |
-| General CSS            |    M     |      3hrs      |     3hrs      |             |
-| Responsive CSS         |    H     |      3hrs      |     1.5hr     |             |
-| Image/Video Formatting |    M     |      3hrs      |      1hr      |             |
-| Debugging/Clearing     |    M     |     2.5hrs     |     2hrs      |             |
-| Dropdown               |    L     |      3hrs      |    2.5hrs     |             |
-| 2nd API Implementation |    L     |      3hrs      |      1hr      |             |
-| Animation              |    L     |      3hrs      |               |             |
-| Deployment             |    H     |      2hrs      |      1hr      |             |
-| About Page HTML        |    L     |      3hrs      |      1hr      |             |
-| About Page CSS         |    L     |     2.5hrs     |     2hrs      |             |
-| Total                  |    H     |     40hrs      |     27hrs     |             |
+| Initial HTML           |    M     |      3hrs      |     3hrs      |    3hrs     |
+| Axios Call             |    H     |      3hrs      |     4hrs      |    4hrs     |
+| Rendering              |    H     |      3hrs      |     4hrs      |    4hrs     |
+| JS Event Listeners     |    H     |      3hrs      |     3hrs      |    3hrs     |
+| General CSS            |    M     |      3hrs      |     3hrs      |    3hrs     |
+| Responsive CSS         |    H     |      3hrs      |    3.5hrs     |   3.5hrs    |
+| Image/Video Formatting |    M     |      3hrs      |     2hrs      |    2hrs     |
+| Debugging/Clearing     |    M     |     2.5hrs     |     4hrs      |    4hrs     |
+| Dropdown               |    L     |      3hrs      |     3hrs      |   3.5hrs    |
+| 2nd API Implementation |    L     |      3hrs      |     2hrs      |    2hrs     |
+| Animation              |    L     |      3hrs      |     2hrs      |    2hrs     |
+| Deployment             |    H     |      2hrs      |     3hrs      |    3hrs     |
+| About Page HTML        |    L     |      3hrs      |      1hr      |     1hr     |
+| About Page CSS         |    L     |     2.5hrs     |      1hr      |     1hr     |
+| Wireframes/Logo Design |    L     |      2hrs      |     2hrs      |    2hrs     |
+| Total                  |    H     |     42hrs      |     41hrs     |    41hrs    |

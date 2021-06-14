@@ -19,7 +19,13 @@ const footer = document.querySelector("footer");
 //as it could lead to errors
 const cover = document.querySelector(".body-cover");
 
-
+const fadeOut = (newMessage) => {
+  message.classList.add("fade-out");
+  setTimeout(() => {
+    message.innerHTML = newMessage;
+    message.classList.remove("fade-out");
+  }, 2000);
+}
 //clears artists for new search results
 const clearArea = () => {
   while (recommendations.childNodes.length) {
@@ -128,7 +134,7 @@ const createArtistBlock = (artist, imageUrl, songList) => {
     { transform: 'scale(1.1)' },
     { transform: 'scale(1)' }
   ], {
-    // timing options
+    // timing and easing options
     duration: 500,
     easing: 'ease-in'
   });
@@ -191,5 +197,5 @@ searchForm.addEventListener("submit", (e) => {
   //send to chain of functions above
   getResults(val);
   //respond with message to confirm user's input
-  message.innerHTML = `Because you like <span class="red">${val}</span>, we recommend...`;
+  fadeOut(`Because you like <span class="red">${val}</span>, we recommend...`);
 });
