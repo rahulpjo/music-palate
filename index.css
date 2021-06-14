@@ -295,7 +295,7 @@ footer .social-icons {
 }
 
 @media screen and (max-width: 600px) {
-  h1 {
+  header h1 {
     font-size: 50px;
   }
 
@@ -320,7 +320,7 @@ footer .social-icons {
 }
 
 @media screen and (max-width: 500px) {
-  h1 {
+  header h1 {
     font-size: 30px;
   }
 
@@ -345,10 +345,10 @@ footer .social-icons {
 }
 
 @media screen and (max-width: 374px) {
-  h1 {
+  header h1 {
     font-size: 24px;
   }
-  h1::before {
+  header h1::before {
     content: none;
   }
 
